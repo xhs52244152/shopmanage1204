@@ -1,12 +1,18 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import App from './App'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import App from './App'
+import '@/assets/index.css'
 import router from './router'
+import Http from '@/plugins/http'
 
 Vue.config.productionTip = false
+
+// 目的  把一个不是vue插件的axios变成vue插件
+
+Vue.use(Http)
 
 Vue.use(ElementUI);
 
@@ -14,6 +20,8 @@ Vue.use(ElementUI);
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
