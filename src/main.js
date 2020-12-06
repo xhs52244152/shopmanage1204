@@ -7,6 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/index.css'
 import router from './router'
 import Http from '@/plugins/http'
+import moment from 'moment'
 
 Vue.config.productionTip = false
 
@@ -24,4 +25,8 @@ new Vue({
     App
   },
   template: '<App/>'
+})
+
+Vue.filter('fmtDate', (v) => {
+  return moment(v).format("YYYY-MM-DD");
 })
